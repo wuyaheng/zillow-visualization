@@ -1,0 +1,129 @@
+h5 {
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+}
+
+p {
+  text-align: justify;
+}
+
+.modal {
+  max-height: 20% !important;
+  width: 80% !important;
+  height: 20% !important;
+}
+
+.navbar-light,.navbar-light {
+  margin: 0 auto !important;
+}
+
+nav {
+  height: 50px;
+  line-height: 50px; 
+}
+
+.aboutBtn {
+  background-color: #3f88c5 !important;
+  text-transform: none !important;
+}
+
+.aboutCloseBtn {
+  background-color: #3f88c5 !important;
+}
+.nav-wrapper {
+  background-color: #3f88c5;
+}
+
+.btn {
+  background-color: #3f88c5 !important;
+}
+
+h4 {
+  color: #3f88c5 !important;
+  margin: 0rem 0 0.3rem 0 !important;
+}
+
+h6 {
+  color: #6c757d !important;
+}
+.btn:focus {
+  box-shadow: none !important;
+  color: white;
+}
+
+.btn:hover {
+  box-shadow: none !important;
+  color: white;
+}
+
+input, .form-control:focus {
+  color: #3f88c5 !important;
+  border-bottom: 1px solid #3f88c5 !important;
+  box-shadow: none !important;
+}
+
+input {
+  height: 2.4rem !important;
+}
+
+#mapid { 
+  height: 100%; 
+}
+
+#map-container {
+  height: 100%;
+}
+
+select, option:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+h5 {
+  font-family: 'Roboto', sans-serif; 
+  margin-bottom: 0.2rem !important;
+}
+
+.projectTitle {
+  font-size: 25px !important;
+}
+
+.card {
+  box-shadow: none !important;
+}
+
+.checkbox-blue[type="checkbox"].filled-in:checked+span:not(.lever):after{
+  border: 2px solid #3f88c5 !important;
+  background-color: #3f88c5 !important;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background-color: #3f88c5 !important;
+}
+input[type=range]::-moz-range-thumb {
+  background-color: #3f88c5 !important;
+}
+input[type=range]::-ms-thumb {
+  background-color: #3f88c5 !important;
+}
+
+/***** These are to edit the thumb and the text inside the thumb *****/
+input[type=range] + .thumb {
+  background-color: #3f88c5 !important;
+}
+input[type=range] + .thumb.active .value {
+  color: #fff !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 90% !important;
+  }
+  .projectTitle {
+    font-size: 20px !important;
+  }
+  #mapid { 
+    height: 80vh; 
+  }
+}
