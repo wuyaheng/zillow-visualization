@@ -28,6 +28,7 @@ export default (props) => {
       var convertUndefined = (a) => ((typeof a !== 'undefined') && (a !== null)) ? a : "Unknown"
 
       props.pins.forEach((pin) => {
+        let zillowLink = generateZillowLink(pin)
         if (pin.latitude === null || pin.longitude === null) { return } 
         L.marker([pin.latitude, pin.longitude]).addTo(mymap).bindTooltip('<img class="rounded mx-auto d-block" width="100%" src=' + convertUndefined(pin.imgSrc) + '><br/><b>Address:</b> ' + convertUndefined(pin.address) +
           '<br/><b>Days on Market: </b>' + convertUndefined(pin.daysOnZillow) + '<br/><b>Price: </b>' + (pin.price).toLocaleString('en-US', {
@@ -37,7 +38,8 @@ export default (props) => {
             maximumFractionDigits: 0
           }) + '<br/><b>Property Type: </b>' + convertUndefined(pin.propertyType).toLowerCase() +
           '<br/><b>Square Footage: </b>' + convertUndefined(pin.livingArea) + '<br/><b>Bedrooms: </b>' + convertUndefined(pin.bedrooms) + '<br/><b>Bathrooms: </b>' + convertUndefined(pin.bathrooms) +
-          '<br/>') 
+          '<br/><a target="_blank" href=' + convertUndefined(zillowLink) + '>Click pin to see on zillow.com</a>').on("click", () => {window.open(zillowLink, '_blank').focus();})
+
       });
     }
 
@@ -46,3 +48,9 @@ export default (props) => {
 
   return <div id = "map-container" > </div>;
 };
+
+
+function generateZillowLink(pin) {
+  let dashAddress = pin.address.replace(/,/g,"").replace(/ /g,"-").replace(/#/g,"")
+  return `https://www.zillow.com/homedetails/${dashAddress}/${pin.zpid}_zpid`
+}

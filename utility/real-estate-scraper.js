@@ -3,15 +3,15 @@ const fs = require("fs");
 const { env } = require("process");
 
 const REAL_URL = "https://zillow-com1.p.rapidapi.com/propertyExtendedSearch"
-const FILE_DESTINATION = "src/data.json"
+const FILE_DESTINATION = "./client/src/data.json"
 
 
 
-  const generateRealConfig = (page) => {
+  const generateRealConfig = (page) => { 
     return {
         method: 'GET',
         url: REAL_URL,
-        params: {location: 'Jersey City, NJ', home_type: 'Condo', page: page},
+        params: {location: 'Jersey City, NJ', page: page},
         headers: {
           'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY, 
           'x-rapidapi-host': 'zillow-com1.p.rapidapi.com' 
@@ -21,7 +21,7 @@ const FILE_DESTINATION = "src/data.json"
 
   let data = [];
   let pageNum = 20;
-  let currentPage = 0;
+  let currentPage = 0; 
   
   getData()
   

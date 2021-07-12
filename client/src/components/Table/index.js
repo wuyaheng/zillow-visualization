@@ -33,6 +33,7 @@ const Table = (props) => {
     let rowData = []
     props.results.map((ele, i) => rowData.push( 
       { address: ele.address, 
+        zpid: ele.zpid,
       daysOnZillow: ele.daysOnZillow, 
       price:  ele.price,
       livingArea: ele.livingArea }
@@ -44,9 +45,12 @@ const Table = (props) => {
         field: 'address',
         headerName: 'address',
         cellRenderer: function(params) {
-          return params.data.address;
+          let dashAddress = params.data.address.replace(/,/g,"").replace(/ /g,"-").replace(/#/g,"");
+          let keyData = `https://www.zillow.com/homedetails/${dashAddress}/${params.data.zpid}_zpid`
+          let newLink = `<a href= ${keyData} target="_blank">${keyData}</a>`;
+          return newLink;
         },
-        flex: 2,
+        flex: 4,
       },
       {
         field: 'daysOnZillow',
@@ -90,3 +94,8 @@ const Table = (props) => {
 };
 
 export default Table;
+
+function generateZillowLink(pin) {
+  let dashAddress = pin.address.replace(/,/g,"").replace(/ /g,"-")
+  return `https://www.zillow.com/homedetails/${dashAddress}/${pin.zpid}_zpid`
+}
